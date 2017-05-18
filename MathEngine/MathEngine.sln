@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEngine.Core", "MathEngine.Core\MathEngine.Core.csproj", "{F0309E05-373C-44AA-AFCD-535FFBCD8D27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Core", "Tests.Core\Tests.Core.csproj", "{D32A0056-D718-4AE1-B14A-826391777C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEngine.Utility", "MathEngine.Utility\MathEngine.Utility.csproj", "{1A169C59-23C8-47FD-BB97-927D138A323B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Utility", "Tests.Utility\Tests.Utility.csproj", "{C14402A1-0FC3-4B12-88BC-DEA94B4940D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{D32A0056-D718-4AE1-B14A-826391777C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D32A0056-D718-4AE1-B14A-826391777C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D32A0056-D718-4AE1-B14A-826391777C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A169C59-23C8-47FD-BB97-927D138A323B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A169C59-23C8-47FD-BB97-927D138A323B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A169C59-23C8-47FD-BB97-927D138A323B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A169C59-23C8-47FD-BB97-927D138A323B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C14402A1-0FC3-4B12-88BC-DEA94B4940D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C14402A1-0FC3-4B12-88BC-DEA94B4940D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C14402A1-0FC3-4B12-88BC-DEA94B4940D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14402A1-0FC3-4B12-88BC-DEA94B4940D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
