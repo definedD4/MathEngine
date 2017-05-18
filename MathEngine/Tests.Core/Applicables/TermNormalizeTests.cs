@@ -11,9 +11,9 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void NoApplication()
         {
-            var term = new Term(Identifier.Add,
-                new Term(new Identifier("x")),
-                new Term(new Identifier("y")),
+            var term = new Term(TermClass.Add,
+                new Term(new TermClass("x")),
+                new Term(new TermClass("y")),
                 new Integer(3));
 
             var applicable = new TermNormalize();
@@ -22,9 +22,9 @@ namespace Tests.Core.Applicables
 
             Assert.AreEqual(false, applied);
             Assert.AreEqual(
-                new Term(Identifier.Add,
-                    new Term(new Identifier("x")),
-                    new Term(new Identifier("y")),
+                new Term(TermClass.Add,
+                    new Term(new TermClass("x")),
+                    new Term(new TermClass("y")),
                     new Integer(3)),
                 term);
         }
@@ -32,10 +32,10 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void AddApplication()
         {
-            var term = new Term(Identifier.Add,
-                new Term(new Identifier("x")),
-                new Term(Identifier.Add,
-                    new Term(new Identifier("z")),
+            var term = new Term(TermClass.Add,
+                new Term(new TermClass("x")),
+                new Term(TermClass.Add,
+                    new Term(new TermClass("z")),
                     new Integer(-2)),
                 new Integer(3));
 
@@ -45,10 +45,10 @@ namespace Tests.Core.Applicables
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(Identifier.Add,
-                    new Term(new Identifier("x")),
+                new Term(TermClass.Add,
+                    new Term(new TermClass("x")),
                     new Integer(3),
-                    new Term(new Identifier("z")),
+                    new Term(new TermClass("z")),
                     new Integer(-2)),
                 term);
         }
@@ -56,12 +56,12 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void MulApplication()
         {
-            var term = new Term(Identifier.Mul,
-                new Term(Identifier.Add,
+            var term = new Term(TermClass.Mul,
+                new Term(TermClass.Add,
                     new Integer(2), 
-                    new Term(new Identifier("a"))),
-                new Term(Identifier.Mul,
-                    new Term(new Identifier("z")),
+                    new Term(new TermClass("a"))),
+                new Term(TermClass.Mul,
+                    new Term(new TermClass("z")),
                     new Integer(-5)),
                 new Integer(3));
 
@@ -71,12 +71,12 @@ namespace Tests.Core.Applicables
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(Identifier.Mul,
-                    new Term(Identifier.Add,
+                new Term(TermClass.Mul,
+                    new Term(TermClass.Add,
                         new Integer(2),
-                        new Term(new Identifier("a"))),
+                        new Term(new TermClass("a"))),
                     new Integer(3),
-                    new Term(new Identifier("z")),
+                    new Term(new TermClass("z")),
                     new Integer(-5)),
                 term);
         }

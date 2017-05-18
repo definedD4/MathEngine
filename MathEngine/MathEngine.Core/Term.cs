@@ -2,32 +2,34 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using MathEngine.Utility;
 
 namespace MathEngine.Core
 {
     public class Term
     {
-        public Term(Identifier tag) : this(tag, Enumerable.Empty<Term>())
+        public Term(TermClass tag) : this(tag, Enumerable.Empty<Term>())
         {
         }
 
-        public Term(Identifier tag, params Term[] operands) : this(tag, (IEnumerable<Term>)operands)
+        public Term(TermClass tag, params Term[] operands) : this(tag, (IEnumerable<Term>)operands)
         {
         }
 
-        public Term(Identifier tag, IEnumerable<Term> operands)
+        public Term(TermClass tag, IEnumerable<Term> operands)
         {
             Tag = tag;
             Operands = new List<Term>(operands);
         }
 
-        public Identifier Tag { get; }
+        public TermClass Tag { get; }
 
         public List<Term> Operands { get; }
 
         protected bool Equals(Term other)
         {
-            return Tag.Equals(other.Tag) && Operands.SequenceEqual(other.Operands);
+            return Tag.Equals(other.Tag) && 
+                (Tag.IgnoreOperandOrder ? Operands.ScrambledEquals(other.Operands) : Operands.SequenceEqual(other.Operands));
         }
 
         public override bool Equals(object obj)
@@ -68,12 +70,12 @@ namespace MathEngine.Core
 
     public class Decimal : Term
     {
-        public Decimal(Identifier tag) : base(tag)
+        public Decimal(TermClass tag) : base(tag)
         {
             throw new NotSupportedException();
         }
 
-        public Decimal(decimal value) : base(Identifier.Decimal)
+        public Decimal(decimal value) : base(TermClass.Decimal)
         {
             Value = value;
         }
@@ -88,12 +90,12 @@ namespace MathEngine.Core
 
     public class Integer : Term
     {
-        public Integer(Identifier tag) : base(tag)
+        public Integer(TermClass tag) : base(tag)
         {
             throw new NotSupportedException();
         }
 
-        public Integer(int value) : base(Identifier.Integer)
+        public Integer(int value) : base(TermClass.Integer)
         {
             Value = value;
         }
