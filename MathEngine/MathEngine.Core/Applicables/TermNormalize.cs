@@ -10,7 +10,7 @@ namespace MathEngine.Core.Applicables
 
         public bool Apply(Term term)
         {
-            if (term.Tag != Identifier.Add && term.Tag != Identifier.Mul) return false;
+            if (term.Tag != TermClass.Add && term.Tag != TermClass.Mul) return false;
             var toAdd = new List<Term>();
             var toRemove = new List<Term>();
             bool applicationHappened = false;
