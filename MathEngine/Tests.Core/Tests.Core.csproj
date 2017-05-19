@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Applicables\TermNormalizeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TermTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
