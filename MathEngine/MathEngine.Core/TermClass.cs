@@ -22,6 +22,27 @@ namespace MathEngine.Core
         public string Name { get; }
         public bool IgnoreOperandOrder { get; }
 
+        public static TermClass Parse(string str)
+        {
+            switch (str)
+            {
+                case "Add":
+                    return Add;
+                case "Mul":
+                    return Mul;
+                case "Pow":
+                    return Pow;
+                case "Decimal":
+                    return Decimal;
+                case "Integer":
+                    return Integer;
+                default:
+                    return new TermClass(str);
+            }
+        }
+
+        #region Equality members
+
         private bool Equals(TermClass other)
         {
             return string.Equals(Name, other.Name) && IgnoreOperandOrder == other.IgnoreOperandOrder;
@@ -56,5 +77,7 @@ namespace MathEngine.Core
         {
             return Name;
         }
+
+        #endregion
     }
 }

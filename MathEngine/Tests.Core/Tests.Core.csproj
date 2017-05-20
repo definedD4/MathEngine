@@ -50,6 +50,7 @@
     <Compile Include="StringFormat\TokenizerTests.cs" />
     <Compile Include="StringFormat\TokenTests.cs" />
     <Compile Include="TermTests.cs" />
+    <Compile Include="TermClassTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
