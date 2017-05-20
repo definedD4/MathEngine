@@ -1,8 +1,7 @@
-﻿using System;
-using MathEngine.Core.StringFormat;
+﻿using MathEngine.Core.StringFormat.Parse;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests.Core.StringFormat
+namespace Tests.Core.StringFormat.Parse
 {
     [TestClass]
     public class TokenTests

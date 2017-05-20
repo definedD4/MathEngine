@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using MathEngine.Core.StringFormat;
+﻿using System.Linq;
+using MathEngine.Core.StringFormat.Parse;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Decimal = MathEngine.Core.StringFormat.Decimal;
+using Decimal = MathEngine.Core.StringFormat.Parse.Decimal;
 
-namespace Tests.Core.StringFormat
+namespace Tests.Core.StringFormat.Parse
 {
     [TestClass]
     public class TokenizerTests

@@ -42,8 +42,9 @@
   <ItemGroup>
     <Compile Include="Applicables\TermNormalize.cs" />
     <Compile Include="IApplicable.cs" />
-    <Compile Include="StringFormat\Token.cs" />
-    <Compile Include="StringFormat\Tokenizer.cs" />
+    <Compile Include="StringFormat\Prase\Parser.cs" />
+    <Compile Include="StringFormat\Prase\Token.cs" />
+    <Compile Include="StringFormat\Prase\Tokenizer.cs" />
     <Compile Include="TermClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Term.cs" />

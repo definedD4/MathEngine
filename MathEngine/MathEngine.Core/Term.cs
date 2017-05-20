@@ -16,6 +16,14 @@ namespace MathEngine.Core
         {
         }
 
+        public Term(string tag) : this(new TermClass(tag), Enumerable.Empty<Term>())
+        {
+        }
+
+        public Term(string tag, params Term[] operands) : this(new TermClass(tag), (IEnumerable<Term>)operands)
+        {
+        }
+
         public Term(TermClass tag, IEnumerable<Term> operands)
         {
             Tag = tag;

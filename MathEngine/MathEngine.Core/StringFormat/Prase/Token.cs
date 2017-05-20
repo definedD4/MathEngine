@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MathEngine.Core.StringFormat
+namespace MathEngine.Core.StringFormat.Parse
 {
     public abstract class Token
     {
@@ -43,6 +43,11 @@ namespace MathEngine.Core.StringFormat
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(name));
 
             Name = name;
+        }
+
+        public TermClass IntoTermClass()
+        {
+            return TermClass.Parse(Name);
         }
 
         protected bool Equals(Identifier other)
@@ -91,6 +96,13 @@ namespace MathEngine.Core.StringFormat
             Value = value;
         }
 
+        public Term IntoTerm()
+        {
+            return new Core.Integer(Value);
+        }
+
+        #region Equality members
+
         protected bool Equals(Integer other)
         {
             return Value == other.Value;
@@ -126,6 +138,8 @@ namespace MathEngine.Core.StringFormat
         {
             return Value.ToString();
         }
+
+        #endregion
     }
 
     public class Decimal : Token
@@ -136,6 +150,13 @@ namespace MathEngine.Core.StringFormat
         {
             Value = value;
         }
+
+        public Term IntoTerm()
+        {
+            return new Core.Decimal(Value);
+        }
+
+        #region Equality members
 
         protected bool Equals(Decimal other)
         {
@@ -172,6 +193,8 @@ namespace MathEngine.Core.StringFormat
         {
             return Value.ToString();
         }
+
+        #endregion
     }
 
     public class OpenBrackets : Token

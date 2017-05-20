@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MathEngine.Core.StringFormat
+namespace MathEngine.Core.StringFormat.Parse
 {
     public class Tokenizer
     {
