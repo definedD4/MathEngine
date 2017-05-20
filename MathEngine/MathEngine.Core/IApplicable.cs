@@ -9,4 +9,22 @@
         /// <returns>Returns true if changes to term tree were made, false - otherwise</returns>
         bool Apply(Term term);
     }
+
+    public static class ApplicableExtension
+    {
+        public static bool ApplyRecursive(this IApplicable applicable, Term term)
+        {
+            bool applyed = applicable.Apply(term);
+
+            foreach (var operand in term.Operands)
+            {
+                if (applicable.Apply(operand))
+                {
+                    applyed = true;
+                }
+            }
+
+            return applyed;
+        }
+    }
 }
