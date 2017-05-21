@@ -18,7 +18,7 @@
 
             foreach (var operand in term.Operands)
             {
-                if (applicable.Apply(operand))
+                if (applicable.ApplyRecursive(operand))
                 {
                     applyed = true;
                 }
