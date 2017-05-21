@@ -118,5 +118,55 @@ namespace Tests.Core.Applicables
                     new Integer(-5)),
                 term);
         }
+
+        [TestMethod]
+        public void RemovesAddWithSingleOperand()
+        {
+            var term = new Term(TermClass.Mul,
+                new Term(new TermClass("x")),
+                new Term(new TermClass("y")),
+                new Integer(3),
+                new Term(TermClass.Add,
+                    new Term("z")
+                ));
+
+            var applicable = new TermNormalize();
+
+            bool applied = applicable.Apply(term);
+
+            Assert.IsTrue(applied);
+            Assert.AreEqual(
+                new Term(TermClass.Mul,
+                    new Term(new TermClass("x")),
+                    new Term(new TermClass("y")),
+                    new Integer(3),
+                    new Term("z")),
+                term);
+        }
+
+        [TestMethod]
+        public void RemovesMulWithSingleOperand()
+        {
+            var term = new Term(TermClass.Add,
+                new Term(new TermClass("x")),
+                new Term(new TermClass("y")),
+                new Integer(3),
+                new Term(TermClass.Mul,
+                    new Term("z")
+                ));
+
+            var applicable = new TermNormalize();
+
+            bool applied = applicable.Apply(term);
+
+            Assert.IsTrue(applied);
+            Assert.AreEqual(
+                new Term(TermClass.Add,
+                    new Term(new TermClass("x")),
+                    new Term(new TermClass("y")),
+                    new Integer(3),
+                    new Term("z")),
+                term);
+        }
     }
 }

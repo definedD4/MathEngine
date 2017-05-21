@@ -16,13 +16,16 @@ namespace MathEngine.Core.Applicables
             bool applicationHappened = false;
             foreach (var operand in term.Operands)
             {
-                if (operand.Tag != term.Tag) continue;
-                toAdd.AddRange(operand.Operands);
-                toRemove.Add(operand);
-                applicationHappened = true;
+                if (operand.Tag == term.Tag || (operand.Tag == TermClass.Add || operand.Tag == TermClass.Mul) && operand.Operands.Count == 1)
+                {
+                    toAdd.AddRange(operand.Operands);
+                    toRemove.Add(operand);
+                    applicationHappened = true;
+                }
             }
             toRemove.ForEach(t => term.Operands.Remove(t));
             term.Operands.AddRange(toAdd);
+
             return applicationHappened;
         }
     }
