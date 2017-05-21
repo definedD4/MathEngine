@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applicables\TermNormalizeTests.cs" />
+    <Compile Include="Applicables\NumberAddTests.cs" />
+    <Compile Include="Applicables\CompositeApplicableTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringFormat\TokenizerTests.cs" />
     <Compile Include="StringFormat\TokenTests.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathEngine.Core;
+using MathEngine.Core.Applicables;
 using MathEngine.Core.StringFormat.Parse;
 
 namespace Sandbox
@@ -13,6 +14,13 @@ namespace Sandbox
         static void Main(string[] args)
         {
             var parser = new Parser();
+
+            var applicable = new CompositeApplicable(new IApplicable[]
+            {
+                new TermNormalize(), 
+                new NumberAdd()
+            });
+
             while (true)
             {
                 string input = Console.ReadLine();
@@ -20,8 +28,9 @@ namespace Sandbox
 
                 var parsed = parser.Parse(input);
 
-                Console.WriteLine();
-                PrintTree(parsed, 0, "  ");
+                while (applicable.ApplyRecursive(parsed)) ;
+
+                Console.WriteLine(parsed);
                 Console.WriteLine();
             }
         }
