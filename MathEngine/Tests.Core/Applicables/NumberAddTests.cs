@@ -13,6 +13,31 @@ namespace Tests.Core.Applicables
         public class TermNormalizeTests
         {
             [TestMethod]
+            public void DoesntApplyOnNonAddTerms()
+            {
+                var term = new Term(TermClass.Mul,
+                    new Term("x"),
+                    new Integer(-5),
+                    new Term("y"),
+                    new Integer(3)
+                );
+
+                var applicable = new NumberAdd();
+
+                bool applied = applicable.Apply(term);
+
+                Assert.IsFalse(applied);
+                Assert.AreEqual(
+                    new Term(TermClass.Mul,
+                        new Term("x"),
+                        new Term("y"),
+                        new Integer(-5),
+                        new Integer(3)
+                    ),
+                    term);
+            }
+
+            [TestMethod]
             public void NoApplication()
             {
                 var term = new Term(TermClass.Add,

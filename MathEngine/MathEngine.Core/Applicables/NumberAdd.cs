@@ -7,6 +7,8 @@ namespace MathEngine.Core.Applicables
     {
         public bool Apply(Term term)
         {
+            if (term.Tag != TermClass.Add) return false;
+
             var integers = new List<Integer>();
             var decimals = new List<Decimal>();
 
