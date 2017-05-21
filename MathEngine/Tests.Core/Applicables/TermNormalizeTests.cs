@@ -122,7 +122,7 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void RemovesAddWithSingleOperand()
         {
-            var term = new Term(TermClass.Mul,
+            var term = new Term("test",
                 new Term(new TermClass("x")),
                 new Term(new TermClass("y")),
                 new Integer(3),
@@ -136,7 +136,7 @@ namespace Tests.Core.Applicables
 
             Assert.IsTrue(applied);
             Assert.AreEqual(
-                new Term(TermClass.Mul,
+                new Term("test",
                     new Term(new TermClass("x")),
                     new Term(new TermClass("y")),
                     new Integer(3),
@@ -147,7 +147,7 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void RemovesMulWithSingleOperand()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term("test",
                 new Term(new TermClass("x")),
                 new Term(new TermClass("y")),
                 new Integer(3),
@@ -161,7 +161,7 @@ namespace Tests.Core.Applicables
 
             Assert.IsTrue(applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term("test",
                     new Term(new TermClass("x")),
                     new Term(new TermClass("y")),
                     new Integer(3),

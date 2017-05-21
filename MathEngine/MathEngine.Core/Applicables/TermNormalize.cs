@@ -10,13 +10,13 @@ namespace MathEngine.Core.Applicables
 
         public bool Apply(Term term)
         {
-            if (term.Tag != TermClass.Add && term.Tag != TermClass.Mul) return false;
             var toAdd = new List<Term>();
             var toRemove = new List<Term>();
             bool applicationHappened = false;
             foreach (var operand in term.Operands)
             {
-                if (operand.Tag == term.Tag || (operand.Tag == TermClass.Add || operand.Tag == TermClass.Mul) && operand.Operands.Count == 1)
+                if ((operand.Tag == TermClass.Add || operand.Tag == TermClass.Mul) && operand.Operands.Count == 1
+                    || operand.Tag == term.Tag && (term.Tag == TermClass.Add || term.Tag == TermClass.Mul))
                 {
                     toAdd.AddRange(operand.Operands);
                     toRemove.Add(operand);
