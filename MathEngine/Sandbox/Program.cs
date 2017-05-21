@@ -19,7 +19,8 @@ namespace Sandbox
             {
                 new TermNormalize(), 
                 new NumberAdd(),
-                new NumberMul()
+                new NumberMul(),
+                new SimularTermReduction()
             });
 
             while (true)

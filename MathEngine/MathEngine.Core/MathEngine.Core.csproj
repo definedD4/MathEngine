@@ -43,6 +43,7 @@
     <Compile Include="Applicables\CompositeApplicable.cs" />
     <Compile Include="Applicables\NumberAdd.cs" />
     <Compile Include="Applicables\NumberMul.cs" />
+    <Compile Include="Applicables\SimularTermReduction.cs" />
     <Compile Include="Applicables\TermNormalize.cs" />
     <Compile Include="IApplicable.cs" />
     <Compile Include="StringFormat\Prase\Parser.cs" />
