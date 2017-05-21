@@ -18,7 +18,8 @@ namespace Sandbox
             var applicable = new CompositeApplicable(new IApplicable[]
             {
                 new TermNormalize(), 
-                new NumberAdd()
+                new NumberAdd(),
+                new NumberMul()
             });
 
             while (true)
@@ -26,11 +27,11 @@ namespace Sandbox
                 string input = Console.ReadLine();
                 if (input == "") break;
 
-                var parsed = parser.Parse(input);
+                var term = new Term("Expr", parser.Parse(input));
 
-                while (applicable.ApplyRecursive(parsed)) ;
+                while (applicable.ApplyRecursive(term)) ;
 
-                Console.WriteLine(parsed);
+                Console.WriteLine(term);
                 Console.WriteLine();
             }
         }
