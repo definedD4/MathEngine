@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathEngine.Presentation", "MathEngine.Presentation\MathEngine.Presentation.csproj", "{94B57244-762F-485B-B074-2FC959D65B18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandboxUI", "SandboxUI\SandboxUI.csproj", "{51806BC0-B68C-4144-ABA0-239421C20BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{94B57244-762F-485B-B074-2FC959D65B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94B57244-762F-485B-B074-2FC959D65B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94B57244-762F-485B-B074-2FC959D65B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51806BC0-B68C-4144-ABA0-239421C20BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51806BC0-B68C-4144-ABA0-239421C20BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51806BC0-B68C-4144-ABA0-239421C20BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51806BC0-B68C-4144-ABA0-239421C20BD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

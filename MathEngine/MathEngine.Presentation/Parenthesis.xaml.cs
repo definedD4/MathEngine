@@ -24,5 +24,14 @@ namespace MathEngine.Presentation
         {
             InitializeComponent();
         }
+
+        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
+            "Content", typeof(IEnumerable<Glyph>), typeof(Parenthesis), new PropertyMetadata(default(IEnumerable<Glyph>)));
+
+        public IEnumerable<Glyph> Content
+        {
+            get { return (IEnumerable<Glyph>) GetValue(ContentProperty); }
+            set { SetValue(ContentProperty, value); }
+        }
     }
 }

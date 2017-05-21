@@ -41,8 +41,6 @@ namespace MathEngine.Presentation
             control?.OnItemsSourceChanged((IEnumerable<Glyph>)e.OldValue, (IEnumerable<Glyph>)e.NewValue);
         }
 
-
-
         private void OnItemsSourceChanged(IEnumerable<Glyph> oldValue, IEnumerable<Glyph> newValue)
         {
             var oldValueINotifyCollectionChanged = oldValue as INotifyCollectionChanged;
