@@ -45,6 +45,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicables\NumberMulTests.cs" />
     <Compile Include="Applicables\TermNormalizeTests.cs" />
     <Compile Include="Applicables\NumberAddTests.cs" />
     <Compile Include="Applicables\CompositeApplicableTests.cs" />

@@ -7,25 +7,25 @@ using Decimal = MathEngine.Core.Decimal;
 namespace Tests.Core.Applicables
 {
     [TestClass]
-    public class NumberAddTests
+    public class NumberMulTests
     {
         [TestMethod]
-        public void DoesntApplyOnNonAddTerms()
+        public void DoesntApplyOnNonMulTerms()
         {
-            var term = new Term(TermClass.Mul,
+            var term = new Term(TermClass.Add,
                 new Term("x"),
                 new Integer(-5),
                 new Term("y"),
                 new Integer(3)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.IsFalse(applied);
             Assert.AreEqual(
-                new Term(TermClass.Mul,
+                new Term(TermClass.Add,
                     new Term("x"),
                     new Term("y"),
                     new Integer(-5),
@@ -37,19 +37,19 @@ namespace Tests.Core.Applicables
         [TestMethod]
         public void NoApplication()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
                 new Term("y"),
                 new Integer(3)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(false, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y"),
                     new Integer(3)
@@ -58,46 +58,45 @@ namespace Tests.Core.Applicables
         }
 
         [TestMethod]
-        public void IntegerAddition()
+        public void IntegerMultiplication()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
                 new Integer(-5),
                 new Term("y"),
                 new Integer(3)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y"),
-                    new Integer(-2)
+                    new Integer(-15)
                 ),
                 term);
         }
 
         [TestMethod]
-        public void IntegerToZero()
+        public void RemoveIntegerOne()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
-                new Integer(-5),
-                new Term("y"),
-                new Integer(5)
+                new Integer(1),
+                new Term("y")
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y")
                 ),
@@ -105,47 +104,47 @@ namespace Tests.Core.Applicables
         }
 
         [TestMethod]
-        public void DecimalAddition()
+        public void DecimalMultiplication()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
                 new Decimal(-5.3m),
                 new Term("y"),
                 new Decimal(2.6m)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y"),
-                    new Decimal(-2.7m)
+                    new Decimal(-13.78m)
                 ),
                 term);
         }
 
         [TestMethod]
-        public void DecimalToZero()
+        public void DecimalToOne()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
-                new Decimal(-5.3m),
+                new Decimal(-4m),
                 new Term("y"),
-                new Decimal(2.6m),
-                new Decimal(2.7m)
+                new Decimal(-0.5m),
+                new Decimal(0.5m)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y")
                 ),
@@ -153,9 +152,9 @@ namespace Tests.Core.Applicables
         }
 
         [TestMethod]
-        public void MixedAddition()
+        public void MixedMultiplication()
         {
-            var term = new Term(TermClass.Add,
+            var term = new Term(TermClass.Mul,
                 new Term("x"),
                 new Decimal(-5.3m),
                 new Integer(5),
@@ -164,41 +163,16 @@ namespace Tests.Core.Applicables
                 new Integer(3)
             );
 
-            var applicable = new NumberAdd();
+            var applicable = new NumberMul();
 
             bool applied = applicable.Apply(term);
 
             Assert.AreEqual(true, applied);
             Assert.AreEqual(
-                new Term(TermClass.Add,
+                new Term(TermClass.Mul,
                     new Term("x"),
                     new Term("y"),
-                    new Decimal(5.3m)
-                ),
-                term);
-        }
-
-        [TestMethod]
-        public void MixedAdditionToZero()
-        {
-            var term = new Term(TermClass.Add,
-                new Term("x"),
-                new Decimal(-10.6m),
-                new Integer(5),
-                new Term("y"),
-                new Decimal(2.6m),
-                new Integer(3)
-            );
-
-            var applicable = new NumberAdd();
-
-            bool applied = applicable.Apply(term);
-
-            Assert.AreEqual(true, applied);
-            Assert.AreEqual(
-                new Term(TermClass.Add,
-                    new Term("x"),
-                    new Term("y")
+                    new Decimal(-206.7m)
                 ),
                 term);
         }
