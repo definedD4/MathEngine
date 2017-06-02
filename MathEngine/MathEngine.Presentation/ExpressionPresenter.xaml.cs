@@ -37,11 +37,19 @@ namespace MathEngine.Presentation
                 {
                     Content = new Glyph[]
                     {
-                        new Char() {Value = '2'},
-                        new Char() {Value = ' '},
-                        new Char() {Value = 'x'},
-                        new Char() {Value = '+'},
-                        new Char() {Value = '3'}
+                        new Parenthesis()
+                        {
+                            Content = new Glyph[]
+                            {
+                                new Char {Value = '2'},
+                                new Char {Value = '+'},
+                                new Char {Value = 'z'}
+                            }
+                        },                      
+                        new Char {Value = ' '},
+                        new Char {Value = 'x'},
+                        new Char {Value = '+'},
+                        new Char {Value = '3'}
                     }
                 },
                 new Char {Value = '+'},

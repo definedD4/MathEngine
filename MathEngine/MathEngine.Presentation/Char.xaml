@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              x:Name="Self">
-    <TextBlock Text="{Binding Value, ElementName=Self}" 
-               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Border BorderBrush="Red" BorderThickness="0">
+        <TextBlock Text="{Binding Value, ElementName=Self}" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Border>
 </local:Glyph>
